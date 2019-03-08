@@ -1,0 +1,12 @@
+<div>
+  Make: {{vehicle.make}}
+</div>
+
+<div>
+  Model: {{vehicle.model}}
+</div>
+
+<div>
+  <input type="button" value="Back" [routerLink]="['/vehicles']">
+  <input type="button" value="Edit" [routerLink]="['/vehicles', vehicle.id, 'edit']">
+</div>

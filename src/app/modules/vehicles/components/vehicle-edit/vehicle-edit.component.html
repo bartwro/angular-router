@@ -1,0 +1,57 @@
+<div class="card">
+
+  <div class="card-header">
+    {{pageTitle}}
+  </div>
+
+  <div class="card-body" *ngIf="vehicle">
+
+    <div class="wizard">
+      <a 
+        [routerLink]="['info']"
+        routerLinkActive="active">
+        Basic Information<span [ngClass]="{'fa fa-exclamation': true}"></span>
+      </a>
+      <a
+        [routerLink]="['tags']"
+        routerLinkActive="active">
+        Search Tags
+      </a>
+    </div>
+
+    <router-outlet></router-outlet>
+
+    <div class="row mb-2">
+      <div class="col-md-4">
+        <button class="btn btn-primary mr-3"
+                style="width:80px"
+                type="button"
+                title="Save your entered data"
+                (click)="saveProduct()">
+          Save
+        </button>
+        <button class="btn btn-outline-secondary mr-3"
+                style="width: 80px"
+                type="button"
+                title="Cancel your edits"
+                [routerLink]="['/vehicles']">
+          Cancel
+        </button>
+        <button class="btn btn-outline-warning"
+              style="width: 80px"
+              type="button"
+              title="Delete this vehicle"
+              (click)="deleteVehicle()">
+          Delete
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="alert alert-danger" *ngIf="errorMessage">
+  {{errorMessage}}
+</div>
+
+<!-- <input type="button" value="Back" [routerLink]="['/vehicles', vehicle.id]"> -->
